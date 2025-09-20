@@ -75,31 +75,11 @@ footer {
   padding: 20px;
   border-radius: 10px;
 }
-
 .avatar {
-  width: 80px;         /* nhỏ gọn */
-  height: 80px;
-  border-radius: 50%;  /* tròn */
-  object-fit: cover;
-  border: 2px solid #333; /* viền nhẹ cho đẹp */
+  width: 120px;        /* giới hạn chiều rộng */
+  height: 120px;       /* giới hạn chiều cao */
+  border-radius: 50%;  /* làm tròn */
+  object-fit: cover;   /* cắt ảnh để vừa khung */
+  border: 3px solid #333;
+  display: block;
 }
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.profile-info h1 {
-  margin: 0 0 10px;
-  font-size: 1.5em;
-  color: #fff;
-}
-
-.contact {
-  display: flex;
-  gap: 10px;
-}
-
-
-
