@@ -62,9 +62,21 @@ h1 {
 }
 
 footer {
-  margin-top: 25px;
-  font-size: 14px;
-  color: #888;
+  background: #111;
+  color: #fff; /* chữ trắng để sáng rõ */
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+
+  /* hiệu ứng sáng mờ nhẹ */
+  animation: fadeGlow 3s ease-in-out infinite;
+}
+
+@keyframes fadeGlow {
+  0%   { opacity: 0.6; text-shadow: 0 0 2px #fff; }
+  50%  { opacity: 1;   text-shadow: 0 0 12px #fff; }
+  100% { opacity: 0.6; text-shadow: 0 0 2px #fff; }
+
 }
 .profile {
   display: flex;
