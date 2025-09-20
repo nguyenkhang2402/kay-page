@@ -61,16 +61,16 @@
   font-size: 24px;
   margin-bottom: 15px;
   font-weight: 600;
-
-  /* phát sáng nhẹ nhàng */
   color: #fff;
+
+  /* Hiệu ứng phát sáng nhẹ nhàng */
   animation: glowChill 3s ease-in-out infinite;
 }
 
 @keyframes glowChill {
-  0%   { opacity: 0.7; text-shadow: 0 0 3px #fff; }
-  50%  { opacity: 1;   text-shadow: 0 0 12px #fff; }
-  100% { opacity: 0.7; text-shadow: 0 0 3px #fff; }
+  0%   { opacity: 0.7; text-shadow: 0 0 4px #fff, 0 0 8px #fff; }
+  50%  { opacity: 1;   text-shadow: 0 0 12px #fff, 0 0 24px #fff; }
+  100% { opacity: 0.7; text-shadow: 0 0 4px #fff, 0 0 8px #fff; }
 }
 
     /* Hiệu ứng gõ chữ */
