@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nguyễn Khang - Portfolio</title>
-  <!-- Font Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome (icons) -->
+  <!-- Font Poppins + Telex -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Telex&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f9;
-      color: #333;
+      background: #0d0d0d;
+      color: #f5f5f5;
     }
     header {
-      background: #222;
+      background: #111;
       color: #fff;
       padding: 20px;
       text-align: center;
@@ -29,28 +29,23 @@
       margin: 15px 0;
     }
     .icon {
-      margin: 5px;
+      margin: 0 5px;
       text-decoration: none;
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
+      color: #a0a0a0;
+      background: #000;          /* nền đen */
+      width: 40px;               /* icon nhỏ gọn */
+      height: 40px;
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      transition: background 0.3s;
+      justify-content: center;
+      font-size: 18px;
+      transition: transform 0.3s;
     }
-    /* màu riêng cho từng mạng xã hội */
-    .icon.gmail { background: #d93025; }
-    .icon.gmail:hover { background: #b1271b; }
-    .icon.facebook { background: #1877f2; }
-    .icon.facebook:hover { background: #0f5ad6; }
-    .icon.discord { background: #5865F2; }
-    .icon.discord:hover { background: #404EED; }
-    .icon.github { background: #24292e; }
-    .icon.github:hover { background: #000; }
+    .icon:hover {
+      transform: scale(1.2);
+    }
 
-    /* panel chung */
     .panel {
       background: #000;
       color: #fff;
@@ -60,6 +55,7 @@
       max-width: 600px;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s ease;
     }
     .panel h2 {
       font-size: 24px;
@@ -67,18 +63,24 @@
       font-weight: 600;
     }
 
-    /* hiệu ứng gõ chữ */
-    #typing {
+    /* Hiệu ứng gõ chữ */
+    .typing {
       font-size: 20px;
       font-weight: bold;
-      color: #00ffcc;
-      border-right: 2px solid #00ffcc;
+      font-family: 'Telex', sans-serif; /* font hiện đại */
+      color: #fff;                      /* chữ trắng */
+      border-right: 2px solid #fff;
       display: inline-block;
       padding-right: 5px;
       animation: blink 0.7s step-end infinite;
     }
     @keyframes blink {
       50% { border-color: transparent; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -94,32 +96,23 @@
   <header>
     <h1>Nguyễn Khang</h1>
     <div class="contact">
-      <a href="mailto:yourmail@example.com" class="icon gmail">
-        <i class="fa-solid fa-envelope"></i> Gmail
-      </a>
-      <a href="https://facebook.com/" target="_blank" class="icon facebook">
-        <i class="fa-brands fa-facebook"></i> Facebook
-      </a>
-      <a href="https://discord.com/users/your_discord_id" target="_blank" class="icon discord">
-        <i class="fa-brands fa-discord"></i> Discord
-      </a>
-      <a href="https://github.com/your_github_username" target="_blank" class="icon github">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
+      <a href="mailto:yourmail@example.com" class="icon"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="icon"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://discord.com/users/your_discord_id" target="_blank" class="icon"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://github.com/your_github_username" target="_blank" class="icon"><i class="fa-brands fa-github"></i></a>
     </div>
   </header>
 
   <!-- Professional Panel -->
   <section class="panel">
     <h2>Professional</h2>
-    <h3 id="typing"></h3>
+    <h3 id="typing-pro" class="typing"></h3>
   </section>
 
   <!-- Gaming Panel -->
   <section class="panel">
     <h2>Gaming</h2>
-    <p>🎮 Panel ⚙️</p>
-    <p>💻 Cheat</p>
+    <h3 id="typing-game" class="typing"></h3>
   </section>
 
   <footer>
@@ -127,34 +120,49 @@
   </footer>
 
   <script>
-    // Gõ chữ trong Professional
-    const skills = ["Python 🐍", "Canva 🎨"];
-    let skillIndex = 0;
-    let charIndex = 0;
-    let currentSkill = "";
-    let isDeleting = false;
+    // Professional (Python, Canva)
+    const proSkills = ["Python 🐍", "Canva 🎨"];
+    let proIndex = 0, proChar = 0, proDelete = false;
 
-    function type() {
-      currentSkill = skills[skillIndex];
-      document.getElementById("typing").innerHTML = currentSkill.substring(0, charIndex);
+    function typePro() {
+      const text = proSkills[proIndex];
+      document.getElementById("typing-pro").innerHTML = text.substring(0, proChar);
 
-      if (!isDeleting && charIndex < currentSkill.length) {
-        charIndex++;
-        setTimeout(type, 120);
-      } else if (isDeleting && charIndex > 0) {
-        charIndex--;
-        setTimeout(type, 60);
+      if (!proDelete && proChar < text.length) {
+        proChar++;
+        setTimeout(typePro, 120);
+      } else if (proDelete && proChar > 0) {
+        proChar--;
+        setTimeout(typePro, 60);
       } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) {
-          skillIndex = (skillIndex + 1) % skills.length;
-        }
-        setTimeout(type, 800);
+        proDelete = !proDelete;
+        if (!proDelete) proIndex = (proIndex + 1) % proSkills.length;
+        setTimeout(typePro, 800);
       }
     }
+    typePro();
 
-    type();
+    // Gaming (Panel, Cheat)
+    const gameSkills = ["Panel ⚙️", "Cheat 💻"];
+    let gameIndex = 0, gameChar = 0, gameDelete = false;
+
+    function typeGame() {
+      const text = gameSkills[gameIndex];
+      document.getElementById("typing-game").innerHTML = text.substring(0, gameChar);
+
+      if (!gameDelete && gameChar < text.length) {
+        gameChar++;
+        setTimeout(typeGame, 120);
+      } else if (gameDelete && gameChar > 0) {
+        gameChar--;
+        setTimeout(typeGame, 60);
+      } else {
+        gameDelete = !gameDelete;
+        if (!gameDelete) gameIndex = (gameIndex + 1) % gameSkills.length;
+        setTimeout(typeGame, 800);
+      }
+    }
+    typeGame();
   </script>
 </body>
 </html>
-
