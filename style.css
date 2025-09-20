@@ -85,11 +85,15 @@ footer {
 }
 
 .avatar {
-  width: 120px;          /* nhỏ gọn */
+  width: 120px;
   height: 120px;
-  border-radius: 50%;    /* tròn 100% */
-  object-fit: cover;     /* giữ đúng tỉ lệ, cắt thừa */
-  border: 3px solid #333; 
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-bottom: 15px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
