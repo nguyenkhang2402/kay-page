@@ -121,9 +121,28 @@
     <h3 id="typing-game" class="typing"></h3>
   </section>
 
-  <footer>
-    ©Copyright: frv.kay
-  </footer>
+  <footer class="copyright">
+  ©Copyright: frv.kay
+</footer>
+
+<style>
+  footer.copyright {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+
+    /* hiệu ứng sáng mờ nhẹ */
+    animation: fadeGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeGlow {
+    0%   { opacity: 0.6; text-shadow: 0 0 2px #fff; }
+    50%  { opacity: 1;   text-shadow: 0 0 8px #fff; }
+    100% { opacity: 0.6; text-shadow: 0 0 2px #fff; }
+  }
+</style>
 
   <script>
     // Professional (Python, Canva)
