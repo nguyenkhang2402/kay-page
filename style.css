@@ -66,13 +66,40 @@ footer {
   font-size: 14px;
   color: #888;
 }
-.avatar {
-  width: 120px;          /* Kích thước avatar */
-  height: 120px;
-  border-radius: 50%;    /* Bo tròn */
-  border: 2px solid #fff; /* Viền trắng */
-  margin-bottom: 15px;   /* Cách tên 1 chút */
-  object-fit: cover;     /* Ảnh luôn vừa khung */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;           /* khoảng cách avatar với chữ */
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
 }
+
+.avatar {
+  width: 80px;         /* nhỏ gọn */
+  height: 80px;
+  border-radius: 50%;  /* tròn */
+  object-fit: cover;
+  border: 2px solid #333; /* viền nhẹ cho đẹp */
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-info h1 {
+  margin: 0 0 10px;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.contact {
+  display: flex;
+  gap: 10px;
+}
+
 
 
