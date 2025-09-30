@@ -244,15 +244,18 @@ class Drop {
 }
 
   update() {
-    this.y += this.speed;
-    if (this.y > canvas.height) {
-      this.y = Math.random() * -100;
-      this.x = Math.random() * canvas.width;
-      this.speed = Math.random() * 4 + 4;
-      this.length = Math.random() * 10 + 5;
-    }
-    this.draw();
+  this.y += this.speed;
+
+  // Nếu rơi xuống dưới thì reset lại
+  if (this.y > canvas.height) {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * -100; 
+    this.speed = Math.random() * 4 + 4;
+    this.length = Math.random() * 20 + 10;
+    this.opacity = Math.random() * 0.5 + 0.5; // thêm độ trong suốt
   }
+
+  this.draw(ctx);
 }
 
 const drops = [];
