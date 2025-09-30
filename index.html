@@ -215,20 +215,33 @@ window.addEventListener("resize", () => {
 
 class Drop {
   constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * -canvas.height;
-    this.length = Math.random() * 10 + 5;
-    this.speed = Math.random() * 2 + 2;
+    this.reset();
   }
 
-  draw() {
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * -canvas.height; // bắt đầu rơi từ trên cao
+    this.length = Math.random() * 20 + 10;   // độ dài ngẫu nhiên
+    this.speed = Math.random() * 4 + 4;      // tốc độ ngẫu nhiên
+    this.opacity = Math.random() * 0.5 + 0.5; // độ trong suốt
+  }
+
+  fall() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.reset(); // rơi lại từ trên
+    }
+  }
+
+  draw(ctx) {
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(173, 216, 230, 0.7)"; // màu xanh nhạt
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = `rgba(174,194,224,${this.opacity})`;
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(this.x, this.y + this.length);
+    ctx.lineWidth = 1;
     ctx.stroke();
   }
+}
 
   update() {
     this.y += this.speed;
