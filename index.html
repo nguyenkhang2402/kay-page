@@ -32,8 +32,8 @@
       margin: 0 5px;
       text-decoration: none;
       color: #a0a0a0;
-      background: #000;          /* nền đen */
-      width: 40px;               /* icon nhỏ gọn */
+      background: #000;         
+      width: 40px;              
       height: 40px;
       border-radius: 50%;
       display: inline-flex;
@@ -63,7 +63,7 @@
   font-weight: 600;
   color: #fff;
 
-  /* Hiệu ứng phát sáng nhẹ nhàng */
+
   animation: glowChill 3s ease-in-out infinite;
 }
 
@@ -73,7 +73,7 @@
   100% { opacity: 0.7; text-shadow: 0 0 4px #fff, 0 0 8px #fff; }
 }
 
-    /* Hiệu ứng gõ chữ */
+   
     .typing {
       font-size: 20px;
       font-weight: bold;
@@ -155,8 +155,8 @@
 </style>
 
   <script>
-    // Professional (Python, Canva)
-    const proSkills = ["ove to explore knowledge about python and canva"];
+    // Professional (Python, Css)
+    const proSkills = ["Ove to explore knowledge about python and css"];
     let proIndex = 0, proChar = 0, proDelete = false;
 
     function typePro() {
@@ -177,7 +177,7 @@
     }
     typePro();
 
-    // Gaming (Panel, Cheat)
+   
     const gameSkills = [" sleeping makes time fly by i like it"];
     let gameIndex = 0, gameChar = 0, gameDelete = false;
 
@@ -206,11 +206,11 @@ const canvas = document.getElementById("rain");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
-canvas.height = 200;   // chỉnh cao 200px, bạn có thể đổi số khác
+canvas.height = 200;   
 
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
-  canvas.height = 200;   // luôn giữ 200px
+  canvas.height = 200;  
 });
 
 class Drop {
@@ -219,7 +219,7 @@ class Drop {
     this.y = Math.random() * -canvas.height;
     this.length = Math.random() * 20 + 10;
     this.speed = Math.random() * 4 + 4;
-    this.opacity = Math.random() * 0.5 + 0.5; // giọt mưa đậm nhạt khác nhau
+    this.opacity = Math.random() * 0.5 + 0.5; 
   }
 
   update() {
